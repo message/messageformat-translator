@@ -1,0 +1,23 @@
+{
+  "name": "messageformat-translator",
+  "version": "0.0.1",
+  "description": "Translator for messageformat library, which compiles json files into objects",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/message/messageformat-translator.git"
+  },
+  "keywords": [
+    "messageformat",
+    "translator"
+  ],
+  "author": "Dmitry Polovka <messaged@messaged.lv>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/message/messageformat-translator/issues"
+  },
+  "homepage": "https://github.com/message/messageformat-translator"
+}
