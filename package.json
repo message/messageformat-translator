@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/message/messageformat-translator/issues"
   },
-  "homepage": "https://github.com/message/messageformat-translator"
+  "homepage": "https://github.com/message/messageformat-translator",
+  "dependencies": {
+    "messageformat": "^0.2.1"
+  }
 }
