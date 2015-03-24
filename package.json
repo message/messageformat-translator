@@ -1,6 +1,6 @@
 {
   "name": "messageformat-translator",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Translator for messageformat library, which compiles json files into objects",
   "main": "index.js",
   "scripts": {
