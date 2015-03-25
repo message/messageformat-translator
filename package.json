@@ -1,6 +1,6 @@
 {
   "name": "messageformat-translator",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Translator for messageformat library, which compiles json files into objects",
   "main": "index.js",
   "scripts": {
@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/message/messageformat-translator",
   "dependencies": {
-    "messageformat": "^0.2.1"
+    "messageformat": "^0.2.1",
+    "lodash": "^3.5.0"
   }
 }
