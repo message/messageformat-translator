@@ -14,7 +14,7 @@ var MessageFormatTranslator = {
 	directoryBody: function (directory, locale) {
 		var mf = new MessageFormat(locale);
 		var extension = ".json";
-		var body = "this[\"" + mf.globalName + "\"]=" + mf.functions() + ";\n";
+		var body = "var " + mf.globalName + " = " + mf.functions() + ";\n";
 		_.forEach(fs.readdirSync(directory), function (item) {
 			if (path.extname(item) === extension) {
 				var fullPath = _.trimRight(directory, "/") + "/" + item;
@@ -26,20 +26,20 @@ var MessageFormatTranslator = {
 					return;
 				}
 
-				body += "this[\"" + mf.globalName + "\"][\"" + fileBaseName + "\"] = {};\n";
+				body += mf.globalName + "[\"" + fileBaseName + "\"] = {};\n";
 				_.forEach(parsedObject, function (value, key) {
 					if (typeof value !== "string") {
 						delete parsedObject[key];
 						return;
 					}
 
-					body += "this[\"" + mf.globalName + "\"][\"" + fileBaseName + "\"][\"" + key + "\"] = " + mf.compile(value).toString() + ";\n";
+					body += mf.globalName + "[\"" + fileBaseName + "\"][\"" + key + "\"] = " + mf.compile(value).toString() + ";\n";
 				});
 			}
 		});
 		body += "this.getNamespace = function(namespace) { " +
-		"if( ! this[\"" + mf.globalName + "\"].hasOwnProperty(namespace)) { return false;}" +
-		"return this[\"" + mf.globalName + "\"][namespace];" +
+		"if( ! " + mf.globalName + ".hasOwnProperty(namespace)) { return false;}" +
+		"return " + mf.globalName + "[namespace];" +
 		"}";
 		return body;
 	}
